@@ -1,22 +1,21 @@
 {
-  "name": "wp-minimalist-boilerplate",
-  "version": "1.0.0",
-  "author": "João Vilaça",
-  "description": "Minimal webpack boilerplate with HMR and sass",
+  "name": "2DEngine",
+  "version": "0.0.0",
+  "author": "Morgiver",
+  "description": "2D Engine Javascript Canvas",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jpggvilaca/webpack-boilerplate"
+    "url": ""
   },
   "main": "index.js",
   "scripts": {
-    "start": "Webpack/node_modules/.bin/webpack-dev-server --inline --progress --colors",
-    "build": "Webpack/node_modules/.bin/webpack"
+    "start": "node_modules/.bin/webpack-dev-server --inline --progress --colors",
+    "build": "node_modules/.bin/webpack"
   },
   "keywords": [
-    "webpack",
-    "boilerplate",
-    "hmr",
-    "sass"
+    "2D",
+    "Javascript",
+    "Engine"
   ],
   "license": "ISC",
   "devDependencies": {
