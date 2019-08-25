@@ -1,5 +1,9 @@
 
 class Tools {
+    constructor(Engine) {
+        this.Engine = Engine;
+    }
+
     makeId(length) {
         var text = "";
         var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

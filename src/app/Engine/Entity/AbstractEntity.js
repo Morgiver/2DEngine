@@ -15,7 +15,7 @@ class AbstractEntity {
     }
 
     addComponent(name, args = []) {
-        let component = this.require('Component.' + name);
+        let component = this.require('Class.Component.' + name);
 
         if(!this.components[name] && component) {
             this.components[name] = new component(...args);
@@ -25,7 +25,7 @@ class AbstractEntity {
     update() {
         for(let i in this.components) {
             if(this.components[i].SystemName) {
-                this.require('System.EntityComponentSystem').updateEntityComponent(this, this.components[i].SystemName);
+                this.require('Systems.' + this.components[i].SystemName).update(this);
             }
         }
     }

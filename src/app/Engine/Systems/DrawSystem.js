@@ -6,17 +6,19 @@ import AbstractSystem from "./AbstractSystem";
  * et rend le code réutilisable
  */
 class DrawSystem extends AbstractSystem {
-    constructor(Manager, id, width, height, context) {
-        super(Manager);
+    constructor(Engine) {
+        super(Engine);
+
+        let globals = this.require('Globals');
         // Création de l'élément Canvas
         this.canvas = document.createElement("canvas");
         // Création du contexte
-        this.ctx = this.canvas.getContext(context || '2d');
+        this.ctx = this.canvas.getContext(globals.Context || '2d');
 
         // Initialisation de l'élément Canvas
-        this.canvas.id     = id     || "game"; // On lui donne un ID
-        this.canvas.width  = width  || 500;    // Une largeur
-        this.canvas.height = height || 500;    // Une hauteur
+        this.canvas.id     = globals.appName      || "game";  // On lui donne un ID
+        this.canvas.width  = globals.screenWidth  || 500; // Une largeur
+        this.canvas.height = globals.screenHeight || 500;// Une hauteur
 
         // Injection de l'élément Canvas
         document.body.appendChild(this.canvas);

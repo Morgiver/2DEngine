@@ -2,22 +2,26 @@ import AbstractManager from "./AbstractManager";
 
 const DRAWABLE_SCENE = 'DRAWABLE_SCENE';
 const HIDDEN_SCENE   = 'HIDDEN_SCENE';
+const GAME_LAYER     = 'GAME_LAYER';
+const HUD_LAYER      = 'HUD_LAYER';
+const MENU_LAYER     = 'MENU_LAYER';
 
-const GAME_LAYER = 'GAME_LAYER';
-const HUD_LAYER  = 'HUD_LAYER';
-const MENU_LAYER = 'MENU_LAYER';
-
+/**
+ * Scene
+ * @description Classe d'une scène, permet de gérer la scène et ses entités
+ */
 class Scene {
     constructor(Manager) {
         this.manager  = Manager;
-        this.eManager = this.manager.Engine.Entity;
-        this.resource = this.require('System.ResourceSystem');
+        this.eManager = this.require('Managers.Entity');
+        this.resource = this.require('Systems.Resource');
         this.entities = [];
         this.state    = HIDDEN_SCENE;
         this.type     = null;
     }
 
     addEntity(config) {
+        if(!config.entityClass || config.entityClass === '' || config.entityClass === 'default') config.entityClass = 'Class.Entity.Entity';
         this.entities[config.name] = this.eManager.create(config.entityClass, config.args);
 
         for(let i in config.components) {
@@ -48,6 +52,10 @@ class Scene {
     }
 }
 
+/**
+ * SceneManager
+ * @description Permet de gérer, créer et mettre a jours les scène
+ */
 class SceneManager extends AbstractManager {
     constructor(Engine) {
         super(Engine);

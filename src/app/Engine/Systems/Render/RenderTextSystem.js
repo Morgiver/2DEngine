@@ -7,9 +7,9 @@ export default class RenderTextSystem extends AbstractSystem {
     }
 
     update(Entity) {
-        let position = Entity.components['PositionComponent'];
-        let text     = Entity.components['RenderTextComponent'];
-        let Draw     = this.require('System.DrawSystem');
+        let position = Entity.components['Position'];
+        let text     = Entity.components['RenderText'];
+        let Draw     = this.require('Systems.Draw');
         let x        = position.x + text.x;
         let y        = position.y + text.y;
 

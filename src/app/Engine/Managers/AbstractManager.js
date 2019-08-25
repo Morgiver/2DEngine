@@ -1,5 +1,6 @@
-
-
+/**
+ * Abstract Manager
+ */
 class AbstractManager {
     constructor(Engine) {
         this.Engine = Engine;

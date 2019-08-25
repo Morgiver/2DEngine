@@ -1,8 +1,8 @@
 
 
-export default class EventsMouseComponent {
+export default class EventsComponent {
     constructor(eventname, triggerName) {
-        this.SystemName  = 'EventsSystem';
+        this.SystemName  = 'Events';
         this.eventname   = eventname;
         this.triggerName = triggerName;
     }

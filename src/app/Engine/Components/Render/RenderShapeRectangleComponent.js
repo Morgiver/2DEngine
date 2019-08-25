@@ -4,7 +4,7 @@ export default class RenderShapeRectangleComponent extends RenderShapeComponent 
     constructor(w, h, fColor, sColor, sWidth) {
         super("rectangle");
 
-        this.SystemName = 'RenderShapeRectangleSystem';
+        this.SystemName = 'RenderShapeRectangle';
 
         this.width  = w;
         this.height = h;

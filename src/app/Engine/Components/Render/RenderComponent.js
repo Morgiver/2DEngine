@@ -1,7 +1,7 @@
 
 export default class RenderComponent {
     constructor() {
-        this.SystemName = "RenderSystem";
+        this.SystemName = "Render";
 
         this.width  = null;
         this.height = null;

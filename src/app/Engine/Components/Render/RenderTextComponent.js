@@ -1,7 +1,7 @@
 
 export default class RenderTextComponent {
     constructor(text, font, size, options = {}) {
-        this.SystemName = 'RenderTextSystem';
+        this.SystemName = 'RenderText';
         this.text = text;
         this.font = font;
         this.size = size;

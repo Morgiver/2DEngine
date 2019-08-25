@@ -1,11 +1,18 @@
-
+/**
+ * AbstractSystem
+ * @description Classe abstraite des System, fourni des méthodes basiques
+ */
 class AbstractSystem {
-    constructor(Manager) {
-        this.manager = Manager;
+    constructor(Engine) {
+        this.Engine = Engine;
     }
 
     require(namespace) {
-        return this.manager.require(namespace);
+        return this.Engine.require(namespace);
+    }
+
+    define(namespace, value) {
+        this.Engine.define(namespace, value);
     }
 
     update() {

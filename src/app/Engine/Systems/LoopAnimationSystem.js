@@ -8,13 +8,14 @@ const LOOP_ANIMATION_RUNNING = 'LOOP_ANIMATION_RUNNING';
 class LoopAnimationSystem extends AbstractSystem {
     constructor(Manager) {
         super(Manager);
-        this.DrawSystem = this.require('System.DrawSystem');
+        this.DrawSystem = this.require('Systems.Draw');
+        this.Scenes     = this.require('Managers.Scene');
         this.loopstate  = LOOP_ANIMATION_STOP;
     }
 
     /**
      * loopAnimationFrame
-     * @description Opère la procédure d'exécution des
+     * @description Opère la procédure d'exécution des mise à jour des frame
      */
     loopAnimationFrame(state) {
         if(state) this.loopstate = state;
@@ -23,7 +24,7 @@ class LoopAnimationSystem extends AbstractSystem {
             case LOOP_ANIMATION_RUNNING:
                 this.DrawSystem.clearScreen();
 
-                this.manager.Engine.Scenes.update();
+                this.Scenes.update();
 
                 window.requestAnimationFrame(() => {
                     this.loopAnimationFrame();

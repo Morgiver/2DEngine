@@ -4,8 +4,8 @@ class DrawImageSystem extends AbstractSystem {
     constructor(Manager) {
         super(Manager);
 
-        this.Draw     = this.require('System.DrawSystem');
-        this.Resource = this.require('System.ResourceSystem');
+        this.Draw     = this.require('Systems.Draw');
+        this.Resource = this.require('Systems.Resource');
     }
 
     update(Entity) {

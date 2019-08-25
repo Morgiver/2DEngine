@@ -4,11 +4,8 @@
 import AbstractSystem from "./AbstractSystem";
 
 class ResourceSystem extends AbstractSystem {
-    constructor(Manager) {
-        super(Manager);
-
-        this.resources          = [];
-        this.resources['image'] = [];
+    constructor(Engine) {
+        super(Engine);
     }
 
     /**
@@ -21,7 +18,7 @@ class ResourceSystem extends AbstractSystem {
         let arrayPromise = [];
 
         for(let i in resources) {
-            if(resources[i].type === 'image') arrayPromise.push(this.addImage(resources[i].name, resources[i].src));
+            if(resources[i].type === 'image') arrayPromise.push(this.addImage(resources[i].namespace, resources[i].src));
         }
 
         return Promise.all(arrayPromise);
@@ -34,26 +31,16 @@ class ResourceSystem extends AbstractSystem {
      * @param src
      * @returns {Promise<unknown>}
      */
-    addImage(name, src) {
+    addImage(namespace, src) {
         return new Promise((resolve, reject) => {
             let image = new Image();
             image.src = src;
             image.onload = () => {
                 resolve();
             };
-            this.resources['image'][name] = image;
-        });
-    }
 
-    /**
-     * getAsset
-     * @description retourne une ressource selon son type et son nom
-     * @param type
-     * @param name
-     * @returns {*}
-     */
-    getAsset(type, name) {
-        return this.resources[type][name];
+            this.define('Assets.' + namespace, image);
+        });
     }
 }
 
