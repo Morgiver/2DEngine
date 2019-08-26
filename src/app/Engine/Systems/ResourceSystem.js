@@ -36,7 +36,12 @@ class ResourceSystem extends AbstractSystem {
             let image = new Image();
             image.src = src;
             image.onload = () => {
+                console.log('image added');
                 resolve();
+            };
+            image.onerror = (event) => {
+                console.error(event);
+                reject(new Error(`L'image ${namespace} n'a pas pu être chargée`))
             };
 
             this.define('Assets.' + namespace, image);

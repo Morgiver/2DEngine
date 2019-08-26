@@ -32,6 +32,9 @@ export default class EventsSystem extends AbstractSystem {
     }
 
     update(Entity) {
+        let mouse    = this.require('Inputs.Mouse');
+        let position = Entity.components['Position'];
+        let events   = Entity.components['Events'];
 
     }
 }

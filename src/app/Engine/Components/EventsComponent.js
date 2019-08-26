@@ -1,9 +1,11 @@
 
 
 export default class EventsComponent {
-    constructor(eventname, triggerName) {
+    constructor() {
         this.SystemName  = 'Events';
-        this.eventname   = eventname;
-        this.triggerName = triggerName;
+
+        for(let i in arguments) {
+            this[arguments[i].name] = arguments[i];
+        }
     }
 }

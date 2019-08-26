@@ -38,24 +38,26 @@ export default class RenderSystem extends AbstractSystem {
     }
 
     update(Entity) {
-        let shapes = Entity.components['Render'].shapes;
+        let shapes = Entity.components['Render'];
         for(let i in shapes) {
-            switch(shapes[i].type) {
-                case "image":
-                    this.renderImage(Entity, shapes[i]);
-                    break;
-                case "rectangle":
-                    this.renderRectangle(Entity, shapes[i]);
-                    break;
-                case "triangle":
-                    this.renderTriangle(Entity, shapes[i]);
-                    break;
-                case "vectors":
-                    this.renderVectors(Entity, shapes[i]);
-                    break;
-                case "text":
-                    this.renderText(Entity, shapes[i]);
-                    break;
+            if(i !== 'SystemName') {
+                switch(shapes[i].type) {
+                    case "image":
+                        this.renderImage(Entity, shapes[i]);
+                        break;
+                    case "rectangle":
+                        this.renderRectangle(Entity, shapes[i]);
+                        break;
+                    case "triangle":
+                        this.renderTriangle(Entity, shapes[i]);
+                        break;
+                    case "vectors":
+                        this.renderVectors(Entity, shapes[i]);
+                        break;
+                    case "text":
+                        this.renderText(Entity, shapes[i]);
+                        break;
+                }
             }
         }
     }
