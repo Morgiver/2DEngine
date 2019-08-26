@@ -27,13 +27,31 @@ class Game extends Engine {
                         args: [],
                         components: {
                             Position: [25, 25],
-                            RenderShapeRectangle: [150, 25, 'red', 'blue', 5],
-                            RenderText: ['START_GAME_BUTTON', 'serif', 12, {x: 15, y: 15}],
-                            Events: [
-                                { event: 'onMouseClick', triggername: 'START_GAME', options: { difficulty: 'normal' }},
-                                { event: 'onMouseHover', fn: 'updateColor', options: { color: 'blue' }},
-                                { event: 'onMouseOut', fn: 'updateColor', options: { color: 'red' }}
-                            ]
+                            Render: [
+                                {
+                                    name: 'START_GAME_BUTTON',
+                                    type: 'rectangle',
+                                    x: 0,
+                                    y: 0,
+                                    width: 250,
+                                    height: 50,
+                                    options: {
+                                        stroke: {
+                                            color: 'black',
+                                            width: 5
+                                        },
+                                        fill: {
+                                            color: 'red'
+                                        }
+                                    }
+                                },
+                                {
+                                    type: 'text', x: 35, y: 30, text: 'START_GAME_BUTTON', options: {
+                                        font: 'serif', size: 16, color: 'white'
+                                    }
+                                }
+                            ],
+                            Events: []
                         }
                     }
                 ]

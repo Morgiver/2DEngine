@@ -1,24 +1,21 @@
-import AbstractEngine      from "./AbstractEngine";
-import Tools               from "./Tools";
+import AbstractEngine       from "./AbstractEngine";
+import Tools                from "./Tools";
 // Managers
-import SceneManager        from "./Managers/SceneManager";
-import EntityManager       from "./Managers/EntityManager";
-import EventsManager       from "./Managers/EventsManager";
+import SceneManager         from "./Managers/SceneManager";
+import EntityManager        from "./Managers/EntityManager";
+import EventsManager        from "./Managers/EventsManager";
 // Systems
-import ResourceSystem             from "./Systems/ResourceSystem";
-import DrawSystem                 from "./Systems/DrawSystem";
-import RenderShapeRectangleSystem from "./Systems/Render/RenderShapeRectangleSystem";
-import RenderTextSystem           from "./Systems/Render/RenderTextSystem";
-import EventsSystem               from "./Systems/EventsSystem";
+import ResourceSystem       from "./Systems/ResourceSystem";
+import DrawSystem           from "./Systems/DrawSystem";
+import RenderSystem         from "./Systems/RenderSystem";
+import EventsSystem         from "./Systems/EventsSystem";
+import LoopAnimationSystem  from "./Systems/LoopAnimationSystem";
 // Components
-import PositionComponent          from "./Components/PositionComponent";
-import RenderComponent            from "./Components/Render/RenderComponent";
-import LoopAnimationSystem        from "./Systems/LoopAnimationSystem";
+import PositionComponent    from "./Components/PositionComponent";
+import RenderComponent      from "./Components/RenderComponent";
 // Entity
-import Entity                        from "./Entity/Entity";
-import RenderShapeRectangleComponent from "./Components/Render/RenderShapeRectangleComponent";
-import RenderTextComponent           from "./Components/Render/RenderTextComponent";
-import EventsComponent               from "./Components/Events/EventsComponent";
+import Entity               from "./Entity/Entity";
+import EventsComponent      from "./Components/EventsComponent";
 
 
 /**
@@ -47,21 +44,18 @@ class Engine extends AbstractEngine {
         /**
          * Définition des Systems
          */
-        this.defineSystem('Resource',             ResourceSystem);
-        this.defineSystem('Draw',                 DrawSystem);
-        this.defineSystem('Events',               EventsSystem);
-        this.defineSystem('LoopAnimation',        LoopAnimationSystem);
-        this.defineSystem('RenderShapeRectangle', RenderShapeRectangleSystem);
-        this.defineSystem('RenderText',           RenderTextSystem);
+        this.defineSystem('Resource',      ResourceSystem);
+        this.defineSystem('Draw',          DrawSystem);
+        this.defineSystem('Render',        RenderSystem);
+        this.defineSystem('Events',        EventsSystem);
+        this.defineSystem('LoopAnimation', LoopAnimationSystem);
 
         /**
          * Définition des Class Components
          */
-        this.defineComponent('Position',             PositionComponent);
-        this.defineComponent('Render',               RenderComponent);
-        this.defineComponent('RenderShapeRectangle', RenderShapeRectangleComponent);
-        this.defineComponent('RenderText',           RenderTextComponent);
-        this.defineComponent('Events',               EventsComponent);
+        this.defineComponent('Position',    PositionComponent);
+        this.defineComponent('Render',      RenderComponent);
+        this.defineComponent('Events',      EventsComponent);
 
         /**
          * Définition des Entity

@@ -25,6 +25,7 @@ class AbstractEngine {
             } else {
                 // sinon on défini la valeur
                 root[parts[i]] = value;
+                return root[parts[i]];
             }
         }
     }

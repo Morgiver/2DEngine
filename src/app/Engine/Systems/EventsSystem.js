@@ -4,13 +4,23 @@ export default class EventsSystem extends AbstractSystem {
     constructor(Manager) {
         super(Manager);
 
-        document.onmousemove = this.onMouseMove;
-        document.onmousedown = this.onMouseDown;
-        document.onmouseup   = this.onMouseUp;
+        document.onmousemove = (event) => {
+            this.onMouseMove(event);
+        };
+        document.onmousedown = (event) => {
+            this.onMouseDown(event);
+        };
+        document.onmouseup = (event) => {
+            this.onMouseUp(event);
+        };
+
+        this.define('Inputs.Mouse', {});
     }
 
     onMouseMove(event) {
-
+        let mouse = this.require('Inputs.Mouse');
+        mouse.x   = event.clientX;
+        mouse.y   = event.clientY;
     }
 
     onMouseDown(event) {

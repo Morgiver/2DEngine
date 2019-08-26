@@ -65,7 +65,17 @@ class DrawSystem extends AbstractSystem {
             this.ctx.stroke();
         }
 
-        this.ctx.rect(x, y, w, h);
+        if(options.fill) this.ctx.fillRect(x, y, w, h);
+        if(options.stroke) this.ctx.strokeRect(x, y, w, h);
+    }
+
+
+    triangle() {
+        return;
+    }
+
+    vector() {
+        return;
     }
 
     /**
@@ -77,7 +87,7 @@ class DrawSystem extends AbstractSystem {
      * @param options
      */
     text(x, y, text, options = {}) {
-        if(options.font)  this.ctx.font      = options.size +' '+ options.font;
+        if(options.font)  this.ctx.font      = options.size +'px '+ options.font;
         if(options.color) this.ctx.fillStyle = options.color;
         this.ctx.fillText(text, x, y);
     }
